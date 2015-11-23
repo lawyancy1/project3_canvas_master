@@ -24,22 +24,23 @@
 	// The main animation loop
 	setInterval( function() {
 		context.clearRect( 0, 0, w, h );
-		context.fillStyle = 'rgba(255,255,255,.5)';
+		context.fillStyle = 'rgba(255, 102, 0,.5)';
+		context.globalCompositeOperation = 'lighter';
+		context.fillstyle = 'rgba(0, 255, 0, .5)';
 		context.globalCompositeOperation = 'color-burn';
-		
 		time += .1;
 		
 		// The number of particles to generate
-		i = 5000;
+		i = 7500;
 		
 		while( i-- ) {
 			// The magic
-			r = ( ( w + h ) * 0.4 ) * ( cos( ( time + i ) * ( .05 + ( ( sin(time*0.00002) / PI ) * .2 ) ) ) / PI );
+			r = ( ( w + h ) * 0.4 ) * ( cos( ( time + i ) * ( .05 + ( ( sin(time*0.00030) / PI ) * .4 ) ) ) / PI );
 			
 			context.fillRect( sin(i) * r + (w/2), 
 							  cos(i) * r + (h/2), 
-							  1, 
-							  1 );
+							  4, 
+							  4 );
 		}
 	}, 32 );
 })()

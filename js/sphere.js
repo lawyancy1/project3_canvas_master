@@ -3,19 +3,19 @@
 	var d = document,
 		canvas = d.body.appendChild( d.createElement( 'canvas' ) ),
 		context = canvas.getContext( '2d' ),
-		time = 1,
-		w = 10,
-		h = 10,
-		cos = Math.cos,
-		sin = Math.sin,
-		PI = Math.PI;
+		 time = 1,
+		 w = 10,
+		 h = 10,
+		 cos = Math.cos,
+		 sin = Math.sin,
+		 PI = Math.PI;
 	
 	function resize() {
 		canvas.width = w = innerWidth;
 		canvas.height = h = innerHeight;
 	}
 
-	// Monitor browser resize
+	// Browser Size Response
 	addEventListener( 'resize', resize, false );
 
 	// Initial size
@@ -24,7 +24,7 @@
 	// The main animation loop
 	setInterval( function() {
 		context.clearRect( 0, 0, w, h );
-		context.fillStyle = 'rgba(0,255,255,.5)';
+		context.fillStyle = 'rgba(255,255,255,.5)';
 		context.globalCompositeOperation = 'color-burn';
 		
 		time += .1;
@@ -41,5 +41,5 @@
 							  1, 
 							  1 );
 		}
-	}, 16 );
+	}, 32 );
 })()

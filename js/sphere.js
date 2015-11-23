@@ -34,7 +34,7 @@
 		i = 7500;
 		
 		while( i-- ) {
-			// Where Math happens lol
+			// Where Math happens lol(Makes stuff go in circles)
 			r = ( ( w + h ) * 0.4 ) * ( cos( ( time + i ) * ( .05 + ( ( sin(time*0.00030) / PI ) * .4 ) ) ) / PI );
 			
 			context.fillRect( sin(i) * r + (w/2), 

@@ -35,7 +35,7 @@
 		
 		while( i-- ) {
 			// The magic
-			r = ( ( w + h ) * 0.4 ) * ( cos( ( time + i ) * ( .05 + ( ( sin(time*0.00030) / PI ) * .4 ) ) ) / PI );
+			r = ( ( w + h ) * 0.4 ) * ( cos( ( time + i ) * ( .05 + ( ( sin(time*0.00020) / PI ) * .4 ) ) ) / PI );
 			
 			context.fillRect( sin(i) * r + (w/2), 
 							  cos(i) * r + (h/2), 

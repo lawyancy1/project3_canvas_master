@@ -1,5 +1,6 @@
 
 (function(){
+
 	var d = document,
 		canvas = d.body.appendChild( d.createElement( 'canvas' ) ),
 		context = canvas.getContext( '2d' ),

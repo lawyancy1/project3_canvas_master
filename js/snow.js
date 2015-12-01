@@ -10,9 +10,9 @@
 var flakes = [],
     canvas = document.getElementById("canvas2"),
     ctx = canvas.getContext("2d"),
-    flakeCount = 400,
+    flakeCount = 750,
     mX = -100,
-    mY = -200
+    mY = -225
 //browser window responsiveness
     canvas.width = window.innerWidth;
 	canvas.height = window.innerHeight;
@@ -25,7 +25,7 @@ function snow() {
         var flake = flakes[i],
             x = mX,
             y = mY,
-            minDist = 150,
+            minDist = 100,
             x2 = flake.x,
             y2 = flake.y;
 
@@ -37,7 +37,7 @@ function snow() {
             var force = minDist / (dist * dist),
                 xcomp = (x - x2) / dist,
                 ycomp = (y - y2) / dist,
-                deltaV = force / 2;
+                deltaV = force / 3;
 
             flake.velX -= deltaV * xcomp;
             flake.velY -= deltaV * ycomp;
@@ -47,7 +47,7 @@ function snow() {
             if (flake.velY <= flake.speed) {
                 flake.velY = flake.speed
             }
-            flake.velX += Math.cos(flake.step += .05) * flake.stepSize;
+            flake.velX += Math.cos(flake.step += .07) * flake.stepSize;
         }
 
         ctx.fillStyle = "rgba(255,255,255," + flake.opacity + ")";

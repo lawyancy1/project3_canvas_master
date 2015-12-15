@@ -44,4 +44,22 @@
 							  4 );
 		}
 	}, 32 );
+	  
+    function keyControls(e) {
+        switch(e.keyCode) {
+            case 32:
+                // spacebar pressed
+                loader.directStream('toggle');
+                break;
+            case 37:
+                // left key pressed
+                loader.directStream('backward');
+                break;
+            case 39:
+                // right key pressed
+                loader.directStream('forward');
+                break;
+        }   
+    }
+
 })()

@@ -4,6 +4,7 @@ Updates for final
 	resolved by hosting the app on a server so the uploads could be used in local storage link the Meme creator.
 	--SoundCloud Looks to be the best work around for this. They provide the code that allows access to their server storage to grab files for user.
 		--Still Allows for the customization to enhance the user experience.
+		https://developers.soundcloud.com/docs/api/sdks#javascript
 
 ______________________________________________
 Snowing Morphing Particle Sphere for Project 3

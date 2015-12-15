@@ -1,10 +1,26 @@
 # project3_canvas_master
+
+----ATTENTION----
+CANNOT UPLOAD SONGS USING SOUNDCLOUD URLs
+ONLY THE ONE SONG I Was able to grab from SoundCloud Works
+HAD TO REVERT TO A WORKING VERSION uploading SoundCloud URLs cross platform kept breaking the app when I got to a certain point. 
+- More Shapes added with the reaction by sphere to the music.
+- Mouse Functions still work properly when links are clicked. 
+- Player is able to be hidden at the bottom.
+- Animated text occurs when hovering Over About Links and when clicking on the Controls options at the top.
+- Keyboard functions occurs when Space bar is pushed to pause and play music.(Code is present to cycle through Playlists using SoundCloud but non functional now)
+
+
+
 Updates for final
 -- Main Issue is trying to figure out how to allow the user to upload their own music to the app. During lab learned issue could be
 	resolved by hosting the app on a server so the uploads could be used in local storage link the Meme creator.
 	--SoundCloud Looks to be the best work around for this. They provide the code that allows access to their server storage to grab files for user.
 		--Still Allows for the customization to enhance the user experience.
 		https://developers.soundcloud.com/docs/api/sdks#javascript
+		
+Sources-
+
 
 ______________________________________________
 Snowing Morphing Particle Sphere for Project 3

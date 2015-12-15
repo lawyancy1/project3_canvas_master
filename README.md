@@ -10,6 +10,14 @@ HAD TO REVERT TO A WORKING VERSION uploading SoundCloud URLs cross platform kept
 - Animated text occurs when hovering Over About Links and when clicking on the Controls options at the top.
 - Keyboard functions occurs when Space bar is pushed to pause and play music.(Code is present to cycle through Playlists using SoundCloud but non functional now)
 
+---SOURCES---
+https://developers.soundcloud.com/docs/api/sdks#javascript
+https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API
+https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial
+http://www.html5rocks.com/en/tutorials/webaudio/intro/
+http://joshondesign.com/p/books/canvasdeepdive/chapter12.html
+http://chimera.labs.oreilly.com/books/1234000001552/ch05.html
+
 
 
 Updates for final
@@ -19,7 +27,7 @@ Updates for final
 		--Still Allows for the customization to enhance the user experience.
 		https://developers.soundcloud.com/docs/api/sdks#javascript
 		
-Sources-
+
 
 
 ______________________________________________

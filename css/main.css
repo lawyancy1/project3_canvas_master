@@ -1,231 +1,198 @@
-
-
-/*********************************************
- GLOBAL
- *********************************************/
-
-body, html {
-	overflow: auto;
-	font-family: font-family: 'Gloria Hallelujah', cursive;
-	color: #fff;
-	font-size: 11px;
-	background: #003366;
+@font-face {
+	font-family: 'icomoon';
+	src: url('fonts/icomoon.eot');
+}
+@font-face {
+	font-family: 'icomoon';
+	src: url(data:application/x-font-ttf;charset=utf-8;base64,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) format('truetype'),
+		 url(data:application/font-woff;charset=utf-8;base64,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) format('woff');
+	font-weight: normal;
+	font-style: normal;
 }
 
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
 
-/*********************************************
- HEADER
- *********************************************/
-
-header {
-	position: relative;
-	width: 100%;
-	height: 23px;
-	margin: 0;
-	padding: 0 8px 8px 8px;
-	overflow: collapse;
-	z-index: 1;
-	
-	background: rgba( 60, 60, 60, 0.7 );
-	color: #eee;
-	
-	-webkit-transition: height .22s ease-out;
-	   -moz-transition: height .22s ease-out;
-	     -o-transition: height .22s ease-out;
-	        transition: height .22s ease-out;
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
-	header.open {
-		height: 130px;
-	}
-	
-	header h1 {
-		font-family: font-family: 'Gloria Hallelujah', cursive;
-		float: left;
-		margin-top: 1px;
-	}
-	
-	header .header-instruction {
-		float: left;
-		margin: 12px 0 0 15px;
-		
-		font-size: 10px;
-		font-style: italic;
-		color: #999;
-		
-		-webkit-transition: opacity .18s linear;
-		   -moz-transition: opacity .18s linear;
-		     -o-transition: opacity .18s linear;
-		        transition: opacity .18s linear;
-	}
-		header.open .header-instruction {
-			opacity: 50;
-		}
-	header div.extra {
-		margin: 45px 0 0 20px;
-		clear: both;
-		
-		-webkit-transition: opacity .18s linear;
-		   -moz-transition: opacity .18s linear;
-		     -o-transition: opacity .18s linear;
-		        transition: opacity .18s linear;
-	}
-		header div.extra h3 {
-			margin-bottom: 10px;
-		}
-		header a {
-			padding: 2px 4px 2px 2px;
-			color: #999;
-			
-			-webkit-transition: all .1s ease-out;
-			   -moz-transition: all .1s ease-out;
-			     -o-transition: all .1s ease-out;
-			        transition: all .1s ease-in;
-		}
-			header a:hover {
-				padding: 2px 4px 2px 2px;
-				
-				color: #ddd;
-				background-color: #333;
-				border-radius: 1px;
-			}
-		header section {
-			height: 120px;
-			padding: 0 25px;
-			float: left;
-			
-			border-left: 1px #333 solid;
-		}
-		header p {
-			margin-bottom: 5px;
-			
-			font-size: 12px;
-			letter-spacing: 0.05em;
-		}
-		#about {
-			padding-left: 0;
-			border: none;
-		}
-		#about p.credits {
-			margin: 15px 0 2px 0;
-			
-			font-style: italic;
-			color: #666;
-			font-size: 11px;
-			line-height: 1.4em;
-		}
-		#about a:hover {
-			padding: 2px 10px 2px 8px;
-		}
-		
-
-
-.no-canvas {
-	color: #FFFFFF;
-	font-size: 24px;
-	text-align: center;
-	margin-top: 150px;
+.icon-github:before {
+	content: "\e600";
+}
+.icon-play:before {
+	content: "\e601";
+}
+.icon-info:before {
+	content: "\e602";
+}
+.icon-menu:before {
+	content: "\e603";
 }
 
-
-canvas {
-	z-index: 5;
+* {
+    padding: 0;
+    margin: 0;
 }
-
-#background {
-	border: none;
-	z-index: -1;
+body {
+    background-color: #;
+    overflow: hidden;
 }
-
-.ui {
-	font-family: font-family: 'Gloria Hallelujah', cursive;
-	font-size: 10px;
-	color: #999999;
-	text-align: left;
-	padding: 8px;
-	background-color: rgba(0,0,0,0.5);
-	float: left;
+a, a:visited {
+    text-decoration: none;
+    color: #c6c6c6;
 }
-
-#status {
-	width: 884px;
-	height: 15px;
-	padding: 8px;
-	display: none;
-	position: absolute;
-	z-index: 2;
+a:hover, a:active {
+    color: #fff;
 }
-
-#status span {
-	color: #bbbbbb;
-	font-weight: bold;
-	margin-right: 5px;
+#info {
+    display: none;
 }
-
-#status .fps {
-	float: right;
+#controlPanel {
+    z-index: 50;
+    position: absolute;
+    bottom: 35px;
+    width: 100%;
+    color: #999;
+    max-height: 600px;
+    -webkit-transition: max-height 0.8s;
+   	-moz-transition: max-height 0.8s;
+   	transition: max-height 0.8s;
+    overflow: hidden;
 }
-
-#panels {
-	width: 100%;
-	position: absolute;
-	z-index: 3;
+#controlPanel.hidden {
+    max-height: 52px;
 }
-
-#message {
-	padding: 16px;
-	margin-top: 10px;
-	width: 225px;
+#tab {
+    padding: 10px 16px 2px 16px;
+    font-size: 32px;
 }
-
-.ui h2 {
-	margin-bottom: 20px;
-	color: #eeeeee;
+#tab>a {
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 7px 10px 3px 10px;
 }
-
-.ui ul {
-	margin: 10px 0;
+#trackInfoPanel {
+    float: left;
+    width: 100%;
+    overflow: hidden;
+    max-height: 200px;
+	-webkit-transition: max-height 0.8s;
+	-moz-transition: max-height 0.8s;
+	transition: max-height 0.8s;
+    background-color: rgba(255, 255, 255, 0.15);
+    padding-top: 10px;
 }
-
-.ui ul li {
-	margin: 0 0 2px 0;
+#trackInfoPanel.hidden {
+    max-height: 0px;
+    -webkit-transition: max-height 0.2s;
+    -moz-transition: max-height 0.2s;
+    transition: max-height 0.2s;
 }
-
-.ui a {
-	outline: none;
-	font-family: font-family: 'Gloria Hallelujah', cursive;
-	font-size: 38px;
-	text-decoration: none;
-	color: #ffffff;
-	padding: 2px;
-	display: block;
-	transition: all .18s linear;
-	-o-transition: all .18s linear;
-	-moz-transition: all .18s linear;
-	-webkit-transition: all .18s linear;
+#infoImage {
+    float: left;
+    padding: 0px 8px 8px 8px;
 }
-
-.ui a:hover {
-	color: #ffffff;
-	background-color: #000000;
-	transition: all .18s linear;
-	-o-transition: all .18s linear;
-	-moz-transition: all .18s linear;
-	-webkit-transition: all .18s linear;
+#infoArtist {
+    font-size: 24px;
 }
-
-.ui a.external {
-	outline: none;
-	font-family: font-family: 'Gloria Hallelujah', cursive;
-	font-size: 10px;
-	font-weight: bold;
-	text-decoration: none;
-	color: #ffffff;
-	display: inline;
-	padding: 0;
+#infoTrack {
+    font-size: 30px;
 }
-
-.ui a.external:hover {
-	color: #ffffff;
+#playerControls {
+    text-align: center;
+    position: relative;
+    width: 100%;
+    float: left;
+    background-color: rgba(255, 255, 255, 0.15);
+    padding-top: 10px;
 }
-
+#input {
+    font-size: 20px;
+    padding: 8px;
+    margin-bottom: 10px;
+    margin-left: -30px;
+    width: 80%;
+    max-width: 690px;
+    color: white;
+    background-color: #EBEBEB;
+    color: #333;
+    border: 1px solid #111;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+#submit {
+    position: absolute;
+    color: #fff;
+    font-size: 32px;
+    padding: 5px;
+    background: none;
+    border: none;
+}
+#player {
+    width: 95%;
+}
+#messageBox {
+    position: absolute;
+    top: 30%;
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    opacity: 1;
+    max-height: 500px;
+    -webkit-transition: opacity 0.5s, max-height 0.5s, padding 0.5s;
+    -moz-transition: opacity 0.5s, max-height 0.5s, padding 0.5s;
+    transition: opacity 0.5s, max-height 0.5s, padding 0.5s;
+    z-index: 500;
+    overflow: hidden;
+}
+#messageBox.hidden {
+    opacity: 0;
+    max-height: 0;
+    padding: 0;
+}
+#messageBox p {
+    margin-bottom: 10px;
+}
+#messageBox a:link, #messageBox a:visited {
+    color: #666;
+}
+footer {
+    position: absolute;
+    bottom: 0;
+    z-index: 100;
+    background-color: #111;
+    width: 100%;
+    color: #999;
+    height: 35px;
+}
+#credit, #github {
+    display: inline-block;
+    padding-top: 8px;
+    padding-right: 10px;
+}
+#scLogo {
+    float: right;
+}
+/* make some txt small for small screens */
+@media (max-width: 900px) {
+    footer {
+        font-size: 12px;
+    }
+}
+@media (max-width: 480px) {
+    #input {
+        font-size: 16px;
+    }
+    footer {
+        font-size: 10px;
+    }
+}

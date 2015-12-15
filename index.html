@@ -1,53 +1,47 @@
 <!DOCTYPE html>
-<html lang="en"> 
-    <head>
-		<meta charset="utf-8">
-		
-		<meta name="description" content="Canvas Math Project" />
-		
-		
-        <title>Snowing Morphing Particle Sphere</title>
-        
-		<link href="css/reset.css" rel="stylesheet" media="screen" />
-		<link href="css/main.css" rel="stylesheet" media="screen" />
-		<link href='https://fonts.googleapis.com/css?family=Gloria+Hallelujah' rel='stylesheet' type='text/css'>
-		
-    </head>
-    <body>
-    	<header>
-    		<h1>Snowing Morphing Particle Sphere</h1>
-    		<span class="header-instruction">Hover for drop menu</span>
-    		
-    		<!-- The extra content that can be expanded -->
-    		<div class="extra">
-	    		
-    			<!-- Description of the experiment -->
-    			<section id="about">
-    				<h3></h3>
-	    			<p>
-	    				Press Play To Play Music!! <br>
-						Inspired by Michael Bromley Music Experiment<br> 
-						Watch as sphere mores into various shapes!!<br> 
-						I look forward to adding music that can cause <br> 
-						the sphere to pulsate with rhythms! Snow added <br> 
-						for Mouse Interaction and Holiday Spirit!<br>
-						
-	    			</p>
-	    			<p class="credits">
-	    				By <a href="http://www.CryogenicGhost.com">Lawrence Yancy</a> | <a href="http://www.CryogenicGhost.com">Official Website Click Here</a>
-    				</p>
-    				//Audio component
-    			<audio controls="controls" height="100" width="100">
-				<source src="music/Timeless∑L.mp3" type="audio/mp3"><source src="[ogg_file]" type="audio/ogg">
-				<embed height="100" width="100" src="[mp3_file]">
-				</audio>	
-    	<canvas id="canvas2"></canvas>
-		<script src="js/snow.js"></script> 
-		<canvas id="canvas"></canvas>		
-		<script src="js/header.js"></script>
-		<script src="js/sphere.js"></script>
-		//Call to Soundcloud script to allow access to JSON servers and such
-		<script src="http://connect.soundcloud.com/sdk.js"></script>
-		
-    </body>
+<html>
+<head>
+    <title>Morphing Pulsating Polygon Sphere</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+ <header>
+   <a href="#" id="credit"> <i class="icon-info"></i> Controls</a>
+    <span id="scLogo"><a href="http://soundcloud.com/"><img src="assets/powered_by_white.png"></a></span>
+  </header>
+<div id="info">
+    <b>Controls</b><br>
+    <b>Space Bar</b> - Toggle Play/Pause<br>
+</div>
+<div id="visualizer"></div>
+<div id="controlPanel" class="hidden">
+    <div id="tab"><a href="#" id="toggleButton"><i class="icon-menu"></i></a></div>
+    <div id="trackInfoPanel" class="hidden">
+        <img id="infoImage" src="">
+        <div id="infoArtist"></div>
+        <div id="infoTrack"></div>
+    </div>
+    <div id="playerControls">
+        <form id="form">
+            <input id="input" placeholder="Paste Soundcloud URL here (https://soundcloud.com/artist/track)">
+            <button type="submit" id="submit"><i class="icon-play"></i></button><br>
+        </form>
+        <audio id="player" controls="" autoplay="" preload="" autobuffer="" crossorigin="anonymous" src="https://api.soundcloud.com/tracks/230564438/stream?client_id=237d195ad90846f5e6294ade2e8cf87b"></audio>
+    </div>
+</div>
+
+<div id="messageBox" class="hidden">
+</div>
+
+<footer>
+
+</footer>
+
+<script src="http://connect.soundcloud.com/sdk.js""></script>
+<script src="http://code.jquery.com/jquery-1.7.2.js"></script>
+<script src="https://api.soundcloud.com/tracks?client_id=237d195ad90846f5e6294ade2e8cf87b&callback=processTracks"></script>
+<script src="js/sphere.js"></script>
+<script src="js/sdk.js""></script>
+</body>
 </html>

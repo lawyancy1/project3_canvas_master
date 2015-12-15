@@ -42,7 +42,7 @@ var Visualizer = function() {
     // canvas vars
     var fgCanvas;
     var fgCtx;
-    var fgRotation = 0.001;
+    var fgRotation = 0.05;
     var bgCanvas;
     var bgCtx;
     var sfCanvas;
@@ -66,8 +66,8 @@ var Visualizer = function() {
         // calculate the vertices of the polygon
         this.vertices = [];
         for (var i = 1; i <= this.sides;i += 1) {
-            x = this.x + this.tileSize * Math.cos(i * 2 * Math.PI / this.sides + Math.PI/6);
-            y = this.y + this.tileSize * Math.sin(i * 2 * Math.PI / this.sides + Math.PI/6);
+            x = this.x + this.tileSize * Math.cos(i * 2 * Math.PI / this.sides + Math.PI/10);
+            y = this.y + this.tileSize * Math.sin(i * 2 * Math.PI / this.sides + Math.PI/10);
             this.vertices.push([x, y]);
         }
     }
@@ -85,7 +85,10 @@ var Visualizer = function() {
         var angle = Math.atan(coords[1]/coords[0]);
         var distance = Math.sqrt(Math.pow(coords[0], 2) + Math.pow(coords[1], 2)); // a bit of pythagoras
         var mentalFactor = Math.min(Math.max((Math.tan(audioSource.volume/6000) * 0.5), -20), 2); // this factor makes the visualization go crazy wild
-       
+        /*
+        // debug
+        minMental = mentalFactor < minMental ? mentalFactor : minMental;
+         maxMental = mentalFactor > maxMental ? mentalFactor : maxMental;*/
         var offsetFactor = Math.pow(distance/3, 2) * (audioSource.volume/2000000) * (Math.pow(this.high, 1.3)/300) * mentalFactor;
         var offsetX = Math.cos(angle) * offsetFactor;
         var offsetY = Math.sin(angle) * offsetFactor;
@@ -152,15 +155,12 @@ var Visualizer = function() {
             // stroke
             if (val > 20) {
                 var strokeVal = 20;
-                this.ctx.strokeStyle =  "rgba(" + strokeVal + ", " + strokeVal + ", " + strokeVal + ", 0.5)";
+                this.ctx.strokeStyle =  "rgba(" + strokeVal + ", " + strokeVal + ", " + strokeVal + ", 30)";
                 this.ctx.lineWidth = 1;
                 this.ctx.stroke();
             }
         }
-        // display the tile number for debug purposes
-        /*this.ctx.font = "bold 12px sans-serif";
-         this.ctx.fillStyle = 'grey';
-         this.ctx.fillText(this.num, this.vertices[0][0], this.vertices[0][1]);*/
+        
     };
     Polygon.prototype.drawHighlight = function() {
         this.ctx.beginPath();
@@ -219,7 +219,7 @@ var Visualizer = function() {
 
         // stars as lines
         var brightness = 200 + Math.min(Math.round(this.high * 5), 55);
-        this.ctx.lineWidth= 0.5 + distanceFromCentre/2000 * Math.max(this.starSize/2, 1);
+        this.ctx.lineWidth= 1 + distanceFromCentre/2000 * Math.max(this.starSize/2, 1);
         this.ctx.strokeStyle='rgba(' + brightness + ', ' + brightness + ', ' + brightness + ', 1)';
         this.ctx.beginPath();
         this.ctx.moveTo(this.x,this.y);
@@ -233,7 +233,7 @@ var Visualizer = function() {
         this.ctx.closePath();
 
         // starfield movement coming towards the camera
-        var speed = lengthFactor/20 * this.starSize;
+        var speed = lengthFactor/10 * this.starSize;
         this.high -= Math.max(this.high - 0.0001, 0);
         if (speed > this.high) {
             this.high = speed;
@@ -256,7 +256,7 @@ var Visualizer = function() {
     var makeStarArray = function() {
         var x, y, starSize;
         stars = [];
-        var limit = fgCanvas.width / 15; // how many stars?
+        var limit = fgCanvas.width / 50; // how many stars?
         for (var i = 0; i < limit; i ++) {
             x = (Math.random() - 0.5) * fgCanvas.width;
             y = (Math.random() - 0.5) * fgCanvas.height;
@@ -282,10 +282,11 @@ var Visualizer = function() {
         grd.addColorStop(0.8, "rgba(" +
             Math.round(r) + ", " +
             Math.round(g) + ", " +
-            Math.round(b) + ", 0.4)"); // edges are reddish
+            Math.round(b) + ", 255)"); // edges are reddish
 
         bgCtx.fillStyle = grd;
         bgCtx.fill();
+       
     };
 
     this.resizeCanvas = function() {
@@ -333,11 +334,6 @@ var Visualizer = function() {
             }
         });
 
-        // debug
-        /* fgCtx.font = "bold 24px sans-serif";
-         fgCtx.fillStyle = 'grey';
-         fgCtx.fillText("minMental:" + minMental, 10, 10);
-         fgCtx.fillText("maxMental:" + maxMental, 10, 40);*/
         requestAnimationFrame(draw);
     };
 
@@ -376,12 +372,26 @@ var Visualizer = function() {
     };
 };
 
+//var url = 'https://api.soundcloud.com/tracks?client_id=237d195ad90846f5e6294ade2e8cf87b';
+//$.getJSON(url, function(tracks) {
+ // $(tracks).each(function(track) {
+//    console.log(track.title);
+//  })
+//});
+
+var processTrack = function(tracks) {
+  for (var i = 0; i < tracks.length; i++) {
+    console.log(track.title);
+  }
+};
+
+
 /**
  * Makes a request to the Soundcloud API and returns the JSON data.
  */
 var SoundcloudLoader = function(player,uiUpdater) {
     var self = this;
-    var client_id = "YOUR_SOUNDCLOUD_CLIENT_ID"; // to get an ID go to http://developers.soundcloud.com/
+    var client_id = "237d195ad90846f5e6294ade2e8cf87b"; // to get an ID go to http://developers.soundcloud.com/
     this.sound = {};
     this.streamUrl = "";
     this.errorMessage = "";

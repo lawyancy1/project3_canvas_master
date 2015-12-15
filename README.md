@@ -1,4 +1,11 @@
 # project3_canvas_master
+Updates for final
+-- Main Issue is trying to figure out how to allow the user to upload their own music to the app. During lab learned issue could be
+	resolved by hosting the app on a server so the uploads could be used in local storage link the Meme creator.
+	--SoundCloud Looks to be the best work around for this. They provide the code that allows access to their server storage to grab files for user.
+		--Still Allows for the customization to enhance the user experience.
+
+______________________________________________
 Snowing Morphing Particle Sphere for Project 3
 -- Had the snow working properly by itself & Sphere working well by itself.
 -- However when trying to implement the two with the drop menu working properly the snow only fell inside of the drop menu.

@@ -7,6 +7,7 @@
 })();
 
 // creating empty snowflake array to be filled
+//This is also using the idea of multiple canvases in the browser
 var flakes = [],
     canvas = document.getElementById("canvas2"),
     ctx = canvas.getContext("2d"),
